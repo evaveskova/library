@@ -15,7 +15,7 @@ var bookTitle = document.getElementsByClassName("title").value;
 var bookAuthor = document.getElementsByClassName('author').value;
 var bookPages = document.getElementsByClassName('pages').value;
 
-var addToLibrary = (title, author, pages) => { 
+var addToLibrary = (title, author, pages) => {
   title = bookTitle;
   author = bookAuthor;
   pages = bookPages;
@@ -24,12 +24,21 @@ var addToLibrary = (title, author, pages) => {
   return myLibrary.push(obj);
 }
 
+const bookForm = document.forms['book-form'];
+bookForm.addEventListener('submit', function(e){
+  e.preventDefault();
+
+  const value = bookForm.querySelectorAll('input[type="text"]')
+
+});
+
+
 var render = (array) => {
 
   array.forEach(book => {
     var div = document.createElement('div');
     div.classList.add('card');
-    
+
     var heading = document.createElement("h1");
     heading.classList.add("card-title");
     heading.textContent = book.title;
@@ -38,7 +47,7 @@ var render = (array) => {
     var writer = document.createElement("p");
     writer.textContent = "Author: " + book.author;
     div.appendChild(writer);
-    
+
     var pgNo = document.createElement("p");
     pgNo.textContent = "No. of pages: " + book.pages;
     div.appendChild(pgNo);
@@ -49,6 +58,3 @@ var render = (array) => {
 }
 
 render(myLibrary);
-
-
-
