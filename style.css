@@ -1,1 +1,39 @@
+#container {
+  text-align: center;
+  margin-left: 400px;
+  margin-right: 400px;
+  padding-bottom: 80px;
+  font-family:courier, courier new, serif;
+  border: 3px solid #7278f2;
+  border-radius: 6px;
+}
 
+#header {
+ padding: 30px;
+}
+
+#book-form {
+  padding-bottom: 30px;
+}
+
+#book-form input {
+  margin: 6px;
+  padding: 6px;
+  display: inline-block;
+  border: 1px solid #adadad;
+  border-radius: 3px;
+}
+
+#book-form button {
+  margin: 6px;
+  padding: 6px 10px;
+  background-color: #7278f2;
+  color: white;
+}
+
+.card {
+  margin: 0 auto;
+  width: 40%;
+  border: 1px solid #adadad !important;
+  padding: 18px;
+}

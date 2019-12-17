@@ -12,25 +12,30 @@
     />
   </head>
   <body>
-    <h1>Library</h1>
+    <div id="container">
+    <div id="header">
+      <h1>Library</h1>
+    </div>
+
     <div>
       <h3>Add a book to the library:</h3>
       <form id="book-form">
-        <input type="text" class="title" placeholder="Enter book title here" />
+        <input type="text" class="title" placeholder="Book Title" />
         <input
           type="text"
           class="author"
-          placeholder="Enter book author here"
+          placeholder="Book Author"
         />
         <input
           type="text"
           class="pages"
-          placeholder="Enter no. of pages here"
+          placeholder="Number of pages"
         />
-        <button>Submit</button>
+        <button class="btn btn-primary">Submit</button>
       </form>
     </div>
     <div id="book-area"></div>
+  </div>
     <script src="app.js"></script>
   </body>
 </html>
