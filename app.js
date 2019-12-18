@@ -1,4 +1,4 @@
-// debugger;
+debugger;
 
 let myLibrary = [{title: "newspaper", author: "those guys", pages: 100}];
 
@@ -10,7 +10,7 @@ class Book {
   }
 }
 
-var addToLibrary = ({title, author, pages}) => {
+let addToLibrary = ({title, author, pages}) => {
 
   let obj = new Book(title, author, pages);
   return myLibrary.push(obj);
@@ -26,28 +26,28 @@ bookForm.addEventListener('submit', function(e){
   bookForm.reset();
 });
 
-var render = (array) => {
-  var area = document.getElementById("book-area");
+let render = (array) => {
+  let area = document.getElementById("book-area");
   area.innerHTML = "";
   array.forEach((book, i) => {
-    var div = document.createElement('div');
+    let div = document.createElement('div');
     div.classList.add('card');
-    div.setAttribute('data-index-number', `${i}`);
+    div.setAttribute('data-index', `${i}`);
 
-    var heading = document.createElement("h1");
+    let heading = document.createElement("h1");
     heading.classList.add("card-title");
     heading.textContent = book.title;
     div.appendChild(heading);
 
-    var writer = document.createElement("p");
+    let writer = document.createElement("p");
     writer.textContent = "Author: " + book.author;
     div.appendChild(writer);
 
-    var pgNo = document.createElement("p");
+    let pgNo = document.createElement("p");
     pgNo.textContent = "No. of pages: " + book.pages;
     div.appendChild(pgNo);
 
-    var deleteBtn = document.createElement("button");
+    let deleteBtn = document.createElement("button");
     deleteBtn.textContent = 'Delete';
     deleteBtn.classList.add("d-btn");
     div.appendChild(deleteBtn);
@@ -55,5 +55,17 @@ var render = (array) => {
     area.appendChild(div);
   })
 }
+
+let deleteEntry = (entry) => {
+  if (entry.classList.contains('d-btn')) {
+    entry.parentElement.remove();
+  }
+}
+
+document.querySelector('#book-area').addEventListener('click', (e) => {
+  deleteEntry(e.target);
+  let value = e.target.parentElement.dataset.index;
+  delete myLibrary[value];
+});
 
 render(myLibrary);
