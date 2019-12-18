@@ -1,12 +1,13 @@
 debugger;
 
-let myLibrary = [{title: "newspaper", author: "those guys", pages: 100}];
+let myLibrary = [{title: "newspaper", author: "those guys", pages: 100, status: false}];
 
 class Book {
   constructor(title, author, pages) {
     this.title = title;
     this.author = author;
     this.pages = pages;
+    this.status = false;
   }
 }
 
@@ -82,8 +83,12 @@ document.querySelector('#book-area').addEventListener('submit', (e) => {
 document.querySelector('#book-area').addEventListener("change", function (e) {
   if (e.target.checked) {
     e.target.nextSibling.textContent = "read";
+    let checkedVal = e.target.parentElement.dataset.index;
+    myLibrary[checkedVal].status = true;
   } else {
     e.target.nextSibling.textContent = "not-read";
+    let checkedVal = e.target.parentElement.dataset.index;
+    myLibrary[checkedVal].status = false;
   }
 });
 
