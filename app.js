@@ -7,6 +7,7 @@ class Book {
     this.title = title;
     this.author = author;
     this.pages = pages;
+    this.status = false;
   }
 }
 
@@ -52,6 +53,15 @@ let render = (array) => {
     deleteBtn.classList.add("d-btn");
     div.appendChild(deleteBtn);
 
+    let readSwitch = document.createElement("input");
+    readSwitch.setAttribute('type', 'checkbox');
+    readSwitch.classList.add('switch');
+    div.appendChild(readSwitch);
+
+    let switchSpan = document.createElement("span");
+    readSwitch.classList.add('slider');
+    div.appendChild(switchSpan);
+
     area.appendChild(div);
   })
 }
@@ -67,5 +77,17 @@ document.querySelector('#book-area').addEventListener('click', (e) => {
   let value = e.target.parentElement.dataset.index;
   delete myLibrary[value];
 });
+
+// function getValue() {
+//   let isChecked = document.getElementsByClassName("switch");
+//
+//   if (isChecked) {
+//
+// } else {
+//     console.log(not);
+//   }
+// };
+
+// getValue();
 
 render(myLibrary);
