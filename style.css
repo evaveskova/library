@@ -54,3 +54,10 @@
   font-size: calc(30px - 10%);
 }
 
+.active {
+  content: "read";
+}
+.inactive {
+  content: "not-read";
+}
+

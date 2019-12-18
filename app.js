@@ -7,7 +7,6 @@ class Book {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.status = false;
   }
 }
 
@@ -55,11 +54,12 @@ let render = (array) => {
 
     let readSwitch = document.createElement("input");
     readSwitch.setAttribute('type', 'checkbox');
+    readSwitch.setAttribute('data-check', `${i}`);
     readSwitch.classList.add('switch');
     div.appendChild(readSwitch);
 
     let switchSpan = document.createElement("span");
-    readSwitch.classList.add('slider');
+    switchSpan.classList.add('slider');
     div.appendChild(switchSpan);
 
     area.appendChild(div);
@@ -72,22 +72,19 @@ let deleteEntry = (entry) => {
   }
 }
 
-document.querySelector('#book-area').addEventListener('click', (e) => {
+document.querySelector('#book-area').addEventListener('submit', (e) => {
+  e.preventDefault();
   deleteEntry(e.target);
   let value = e.target.parentElement.dataset.index;
   delete myLibrary[value];
 });
 
-// function getValue() {
-//   let isChecked = document.getElementsByClassName("switch");
-//
-//   if (isChecked) {
-//
-// } else {
-//     console.log(not);
-//   }
-// };
-
-// getValue();
+document.querySelector('#book-area').addEventListener("change", function (e) {
+  if (e.target.checked) {
+    e.target.nextSibling.textContent = "read";
+  } else {
+    e.target.nextSibling.textContent = "not-read";
+  }
+});
 
 render(myLibrary);
