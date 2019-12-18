@@ -1,12 +1,43 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Library</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
-    <script src="index.js"></script>
-    <h1>Library</h1>
+    <div id="container">
+      <div id="header">
+        <h1>Library</h1>
+      </div>
+
+    <div>
+      <h3>Add a book to the library:</h3>
+        <form id="book-form">
+          <input type="text" class="title" placeholder="Book Title" name="title" />
+          <input
+            type="text"
+            class="author"
+            placeholder="Book Author"
+            name="author"
+          />
+          <input
+            type="text"
+            class="pages"
+            placeholder="Number of pages"
+            name="pages"
+          />
+          <button class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    <div id="book-area"></div>
+  </div>
+    <script src="app.js"></script>
   </body>
 </html>
