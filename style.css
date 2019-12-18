@@ -25,7 +25,7 @@
   border-radius: 3px;
 }
 
-#book-form button {
+#book-form button, .d-btn {
   margin: 6px;
   padding: 6px 10px;
   background-color: #7278f2;
@@ -53,3 +53,4 @@
 .card-title {
   font-size: calc(30px - 10%);
 }
+

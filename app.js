@@ -10,11 +10,6 @@ class Book {
   }
 }
 
-// var bookForm = document.forms['book-form'];
-var bookTitle = document.getElementsByClassName("title").value;
-var bookAuthor = document.getElementsByClassName('author').value;
-var bookPages = document.getElementsByClassName('pages').value;
-
 var addToLibrary = ({title, author, pages}) => {
 
   let obj = new Book(title, author, pages);
@@ -31,13 +26,13 @@ bookForm.addEventListener('submit', function(e){
   bookForm.reset();
 });
 
-
 var render = (array) => {
   var area = document.getElementById("book-area");
   area.innerHTML = "";
-  array.forEach(book => {
+  array.forEach((book, i) => {
     var div = document.createElement('div');
     div.classList.add('card');
+    div.setAttribute('data-index-number', `${i}`);
 
     var heading = document.createElement("h1");
     heading.classList.add("card-title");
@@ -51,6 +46,11 @@ var render = (array) => {
     var pgNo = document.createElement("p");
     pgNo.textContent = "No. of pages: " + book.pages;
     div.appendChild(pgNo);
+
+    var deleteBtn = document.createElement("button");
+    deleteBtn.textContent = 'Delete';
+    deleteBtn.classList.add("d-btn");
+    div.appendChild(deleteBtn);
 
     area.appendChild(div);
   })
