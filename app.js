@@ -1,5 +1,6 @@
-let myLibrary = [{title: 'Harry Potter', author: 'J.K. Rowling', pages: 394, status: false}];
-
+const myLibrary = [
+  { title: 'Harry Potter', author: 'J.K. Rowling', pages: 394, status: false }
+];
 class Book {
   constructor(title, author, pages) {
     this.title = title;
@@ -26,27 +27,33 @@ bookForm.addEventListener('submit', function(e){
 });
 
 let render = (array) => {
-  let area = document.getElementById('book-area');
+  /* jshint ignore:start*/
+  const area = document.getElementById('book-area');
+  /* jshint ignore:end */
   area.innerHTML = '';
   array.forEach((book, i) => {
     let div = document.createElement('div');
     div.classList.add('card');
     div.setAttribute('data-index', `${i}`);
-
-    let heading = document.createElement('h1');
+    /* jshint ignore:start*/
+    const heading = document.createElement('h1');
+    /* jshint ignore:end*/
     heading.classList.add('card-title');
     heading.textContent = book.title;
     div.appendChild(heading);
-
-    let writer = document.createElement('p');
-    writer.textContent = 'Author: ' + book.author;
+    /* jshint ignore:start*/
+    const writer = document.createElement('p');
+    /* jshint ignore:end*/
+    writer.textContent = `Author:  + ${book.author}`;
     div.appendChild(writer);
-
-    let pgNo = document.createElement('p');
-    pgNo.textContent = 'No. of pages: ' + book.pages;
+    /* jshint ignore:start*/
+    const pgNo = document.createElement('p');
+    /* jshint ignore:end*/
+    pgNo.textContent = `No. of pages: ' + ${book.pages}`;
     div.appendChild(pgNo);
-
+    /* jshint ignore:start*/
     let deleteBtn = document.createElement('button');
+    /* jshint ignore:end*/
     deleteBtn.textContent = 'Delete';
     deleteBtn.classList.add('d-btn');
     div.appendChild(deleteBtn);
@@ -56,12 +63,13 @@ let render = (array) => {
     readSwitch.setAttribute('data-check', `${i}`);
     readSwitch.classList.add('switch');
     div.appendChild(readSwitch);
-
+    /* jshint ignore:start*/
     const switchlabel = document.createElement('label');
+    /* jshint ignore:end */
     switchlabel.classList.add('slider');
     switchlabel.textContent = 'Status: Not Read';
     div.appendChild(switchlabel);
-
+    
     area.appendChild(div);
 
     const deleteEntry = (entry) => {
