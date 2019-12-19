@@ -1,4 +1,4 @@
-let myLibrary = [{title: "Harry Potter", author: "J.K. Rowling", pages: 394, status: false}];
+let myLibrary = [{title: 'Harry Potter', author: 'J.K. Rowling', pages: 394, status: false}];
 
 class Book {
   constructor(title, author, pages) {
@@ -26,70 +26,67 @@ bookForm.addEventListener('submit', function(e){
 });
 
 let render = (array) => {
-  let area = document.getElementById("book-area");
-  area.innerHTML = "";
+  let area = document.getElementById('book-area');
+  area.innerHTML = '';
   array.forEach((book, i) => {
     let div = document.createElement('div');
     div.classList.add('card');
     div.setAttribute('data-index', `${i}`);
 
-    let heading = document.createElement("h1");
-    heading.classList.add("card-title");
+    let heading = document.createElement('h1');
+    heading.classList.add('card-title');
     heading.textContent = book.title;
     div.appendChild(heading);
 
-    let writer = document.createElement("p");
-    writer.textContent = "Author: " + book.author;
+    let writer = document.createElement('p');
+    writer.textContent = 'Author: ' + book.author;
     div.appendChild(writer);
 
-    let pgNo = document.createElement("p");
-    pgNo.textContent = "No. of pages: " + book.pages;
+    let pgNo = document.createElement('p');
+    pgNo.textContent = 'No. of pages: ' + book.pages;
     div.appendChild(pgNo);
 
-    let deleteBtn = document.createElement("button");
+    let deleteBtn = document.createElement('button');
     deleteBtn.textContent = 'Delete';
-    deleteBtn.classList.add("d-btn");
+    deleteBtn.classList.add('d-btn');
     div.appendChild(deleteBtn);
 
-
-    let readSwitch = document.createElement("input");
+    const readSwitch = document.createElement('input');
     readSwitch.setAttribute('type', 'checkbox');
     readSwitch.setAttribute('data-check', `${i}`);
     readSwitch.classList.add('switch');
     div.appendChild(readSwitch);
 
-    let switchlabel = document.createElement("label");
+    const switchlabel = document.createElement('label');
     switchlabel.classList.add('slider');
-    switchlabel.textContent = "Status: Not Read"
+    switchlabel.textContent = 'Status: Not Read';
     div.appendChild(switchlabel);
 
     area.appendChild(div);
 
-    let deleteEntry = (entry) => {
+    const deleteEntry = (entry) => {
       if (entry.classList.contains('d-btn')) {
         entry.parentElement.remove();
       }
-    }
-    
+    };
     deleteBtn.addEventListener('click', (e) => {
       e.preventDefault();
       deleteEntry(e.target);
-      let value = e.target.parentElement.dataset.index;
+      const value = e.target.parentElement.dataset.index;
       delete myLibrary[value];
     });
-    
-    readSwitch.addEventListener("change", (e) => {
+    readSwitch.addEventListener('change', (e) => {
       if (e.target.checked) {
-        e.target.nextSibling.textContent = "Status: Read";
-        let checkedVal = e.target.parentElement.dataset.index;
+        e.target.nextSibling.textContent = 'Status: Read';
+        const checkedVal = e.target.parentElement.dataset.index;
         myLibrary[checkedVal].status = true;
       } else {
-        e.target.nextSibling.textContent = "Status: Not Read";
-        let checkedVal = e.target.parentElement.dataset.index;
+        e.target.nextSibling.textContent = 'Status: Not Read';
+        const checkedVal = e.target.parentElement.dataset.index;
         myLibrary[checkedVal].status = false;
       }
-    })
-  })
+    });
+  });
 }
 
 render(myLibrary);
