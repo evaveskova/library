@@ -20,12 +20,6 @@ let addToLibrary = ({title, author, pages}) => {
   return myLibrary.push(obj);
 }
 
-const openForm = document.getElementById('open-form-btn');
-openForm.addEventListener('click', (e) => {
-  bookForm.classList.remove('hidden-form');
-  bookForm.classList.add("visible-form");
-});
-
 const bookForm = document.forms['book-form'];
 bookForm.addEventListener('submit', function(e){
   e.preventDefault();
@@ -33,8 +27,14 @@ bookForm.addEventListener('submit', function(e){
   addToLibrary(data)
   render(myLibrary);
   bookForm.reset();
-  bookForm.classList.remove("visible-form");
-  bookForm.classList.add("hidden-form");
+  bookForm.classList.remove('visible-form');
+  bookForm.classList.add('hidden-form');
+});
+
+const openForm = document.getElementById('open-form-btn');
+openForm.addEventListener('click', () => {
+  bookForm.classList.remove('hidden-form');
+  bookForm.classList.add("visible-form");
 });
 
 let render = (array) => {
