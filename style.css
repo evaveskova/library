@@ -13,6 +13,13 @@
  padding: 30px;
 }
 
+#open-form-btn {
+  margin: 6px;
+  padding: 6px 10px;
+  background-color: #7278f2;
+  color: white;
+}
+
 .hidden-form {
   display:none;
 }
