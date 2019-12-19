@@ -34,7 +34,7 @@ bookForm.addEventListener('submit', function(e){
 const openForm = document.getElementById('open-form-btn');
 openForm.addEventListener('click', () => {
   bookForm.classList.remove('hidden-form');
-  bookForm.classList.add("visible-form");
+  bookForm.classList.add('visible-form');
 });
 
 let render = (array) => {
