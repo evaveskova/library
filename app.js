@@ -19,6 +19,13 @@ let addToLibrary = ({title, author, pages}) => {
   let obj = new Book(title, author, pages);
   return myLibrary.push(obj);
 }
+
+const openForm = document.getElementById('open-form-btn');
+openForm.addEventListener('click', (e) => {
+  bookForm.classList.remove('hidden-form');
+  bookForm.classList.add("visible-form");
+});
+
 const bookForm = document.forms['book-form'];
 bookForm.addEventListener('submit', function(e){
   e.preventDefault();
@@ -26,7 +33,10 @@ bookForm.addEventListener('submit', function(e){
   addToLibrary(data)
   render(myLibrary);
   bookForm.reset();
+  bookForm.classList.remove("visible-form");
+  bookForm.classList.add("hidden-form");
 });
+
 let render = (array) => {
   const area = document.getElementById('book-area');
   area.innerHTML = '';

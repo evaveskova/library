@@ -13,6 +13,14 @@
  padding: 30px;
 }
 
+.hidden-form {
+  display:none;
+}
+
+.visible-form {
+  display:block !important;
+}
+
 #book-form {
   padding-bottom: 30px;
 }
