@@ -64,38 +64,32 @@ let render = (array) => {
     div.appendChild(switchlabel);
 
     area.appendChild(div);
+
+    let deleteEntry = (entry) => {
+      if (entry.classList.contains('d-btn')) {
+        entry.parentElement.remove();
+      }
+    }
+    
+    deleteBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      deleteEntry(e.target);
+      let value = e.target.parentElement.dataset.index;
+      delete myLibrary[value];
+    });
+    
+    readSwitch.addEventListener("change", (e) => {
+      if (e.target.checked) {
+        e.target.nextSibling.textContent = "Status: Read";
+        let checkedVal = e.target.parentElement.dataset.index;
+        myLibrary[checkedVal].status = true;
+      } else {
+        e.target.nextSibling.textContent = "Status: Not Read";
+        let checkedVal = e.target.parentElement.dataset.index;
+        myLibrary[checkedVal].status = false;
+      }
+    })
   })
 }
-
-let deleteEntry = (entry) => {
-  if (entry.classList.contains('d-btn')) {
-    entry.parentElement.remove();
-  }
-}
-
-document.querySelector('#book-area').addEventListener('click', (e) => {
-  e.preventDefault();
-  deleteEntry(e.target);
-  let value = e.target.parentElement.dataset.index;
-  delete myLibrary[value];
-});
-
-document.querySelector('#book-area').addEventListener("change", (e) => {
-  if (e.target.checked) {
-    e.target.nextSibling.textContent = "Status: Read";
-    let checkedVal = e.target.parentElement.dataset.index;
-    myLibrary[checkedVal].status = true;
-  } else {
-    e.target.nextSibling.textContent = "Status: Not Read";
-    let checkedVal = e.target.parentElement.dataset.index;
-    myLibrary[checkedVal].status = false;
-  }
-});
-
-// if (readSwitch.checked) {
-//   readSwitch.textContent = "Status: Read"
-// } else {
-//   readSwitch.textContent = "Status: Not Read"
-// };
 
 render(myLibrary);
