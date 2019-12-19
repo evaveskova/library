@@ -4,7 +4,7 @@ The aim of this project was to create a library page where users can add and del
 
 ### Live Link
 
-To see the live version of the page, click [here](https://raw.githack.com/evaveskova/library/read-status/index.html).
+To see the live version of the page, click [here](https://rawcdn.githack.com/evaveskova/library/5b626e3db20b4b814388a76be6e329681232b9bf/index.html).
 
 ### How to Use
 
