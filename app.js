@@ -1,6 +1,4 @@
-debugger;
-
-let myLibrary = [{title: "newspaper", author: "those guys", pages: 100, status: false}];
+let myLibrary = [{title: "Harry Potter", author: "J.K. Rowling", pages: 394, status: false}];
 
 class Book {
   constructor(title, author, pages) {
@@ -59,9 +57,10 @@ let render = (array) => {
     readSwitch.classList.add('switch');
     div.appendChild(readSwitch);
 
-    let switchSpan = document.createElement("span");
-    switchSpan.classList.add('slider');
-    div.appendChild(switchSpan);
+    let switchlabel = document.createElement("label");
+    switchlabel.classList.add('slider');
+    switchlabel.textContent = "Status: Not Read"
+    div.appendChild(switchlabel);
 
     area.appendChild(div);
   })
@@ -73,20 +72,20 @@ let deleteEntry = (entry) => {
   }
 }
 
-document.querySelector('#book-area').addEventListener('submit', (e) => {
+document.querySelector('#book-area').addEventListener('click', (e) => {
   e.preventDefault();
   deleteEntry(e.target);
   let value = e.target.parentElement.dataset.index;
   delete myLibrary[value];
 });
 
-document.querySelector('#book-area').addEventListener("change", function (e) {
+document.querySelector('#book-area').addEventListener("change", (e) => {
   if (e.target.checked) {
-    e.target.nextSibling.textContent = "read";
+    e.target.nextSibling.textContent = "Status: Read";
     let checkedVal = e.target.parentElement.dataset.index;
     myLibrary[checkedVal].status = true;
   } else {
-    e.target.nextSibling.textContent = "not-read";
+    e.target.nextSibling.textContent = "Status: Not Read";
     let checkedVal = e.target.parentElement.dataset.index;
     myLibrary[checkedVal].status = false;
   }
