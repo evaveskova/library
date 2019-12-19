@@ -64,7 +64,6 @@ let render = (array) => {
     switchlabel.textContent = 'Status: Not Read';
     div.appendChild(switchlabel);
     area.appendChild(div);
-    
     const deleteEntry = (entry) => {
       if (entry.classList.contains('d-btn')) {
         entry.parentElement.remove();
