@@ -1,5 +1,10 @@
 const myLibrary = [
-  { title: 'Harry Potter', author: 'J.K. Rowling', pages: 394, status: false }
+  { 
+    title: 'Harry Potter', 
+    author: 'J.K. Rowling', 
+    pages: 394, 
+    status: false 
+  }
 ];
 class Book {
   constructor(title, author, pages) {
@@ -9,69 +14,68 @@ class Book {
     this.status = false;
   }
 }
-
 let addToLibrary = ({title, author, pages}) => {
 
   let obj = new Book(title, author, pages);
   return myLibrary.push(obj);
 }
-
+/* eslint-enable */
 const bookForm = document.forms['book-form'];
+/*eslint-disable */
 bookForm.addEventListener('submit', function(e){
   e.preventDefault();
-
   const data = Object.fromEntries(new FormData(bookForm).entries());
   addToLibrary(data)
   render(myLibrary);
   bookForm.reset();
 });
-
 let render = (array) => {
-  /* jshint ignore:start*/
+  /* eslint-enable */
   const area = document.getElementById('book-area');
-  /* jshint ignore:end */
+  /* eslint-disable */
   area.innerHTML = '';
   array.forEach((book, i) => {
+    /*eslint-enable */
     let div = document.createElement('div');
+    /*eslint-disable */
     div.classList.add('card');
     div.setAttribute('data-index', `${i}`);
-    /* jshint ignore:start*/
+    /* eslint-enable */
     const heading = document.createElement('h1');
-    /* jshint ignore:end*/
+    /* eslint-disable */
     heading.classList.add('card-title');
     heading.textContent = book.title;
     div.appendChild(heading);
-    /* jshint ignore:start*/
+    /* eslint-enable */
     const writer = document.createElement('p');
-    /* jshint ignore:end*/
+    /* eslint-disable */
     writer.textContent = `Author:  + ${book.author}`;
     div.appendChild(writer);
-    /* jshint ignore:start*/
+    /* eslint-enable */
     const pgNo = document.createElement('p');
-    /* jshint ignore:end*/
+    /* eslint-disable */
     pgNo.textContent = `No. of pages: ' + ${book.pages}`;
     div.appendChild(pgNo);
-    /* jshint ignore:start*/
-    let deleteBtn = document.createElement('button');
-    /* jshint ignore:end*/
+    /* eslint-enable */
+    const deleteBtn = document.createElement('button');
+    /* eslint-disable */
     deleteBtn.textContent = 'Delete';
     deleteBtn.classList.add('d-btn');
     div.appendChild(deleteBtn);
-
+    /* eslint-enable */
     const readSwitch = document.createElement('input');
+    /* eslint-disable */
     readSwitch.setAttribute('type', 'checkbox');
     readSwitch.setAttribute('data-check', `${i}`);
     readSwitch.classList.add('switch');
     div.appendChild(readSwitch);
-    /* jshint ignore:start*/
+    /* eslint-enable */
     const switchlabel = document.createElement('label');
-    /* jshint ignore:end */
+    /* eslint-disable */
     switchlabel.classList.add('slider');
     switchlabel.textContent = 'Status: Not Read';
     div.appendChild(switchlabel);
-    
     area.appendChild(div);
-
     const deleteEntry = (entry) => {
       if (entry.classList.contains('d-btn')) {
         entry.parentElement.remove();
@@ -96,5 +100,4 @@ let render = (array) => {
     });
   });
 }
-
 render(myLibrary);
