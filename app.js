@@ -51,6 +51,7 @@ let render = (array) => {
     deleteBtn.classList.add("d-btn");
     div.appendChild(deleteBtn);
 
+
     let readSwitch = document.createElement("input");
     readSwitch.setAttribute('type', 'checkbox');
     readSwitch.setAttribute('data-check', `${i}`);
@@ -90,5 +91,11 @@ document.querySelector('#book-area').addEventListener("change", (e) => {
     myLibrary[checkedVal].status = false;
   }
 });
+
+// if (readSwitch.checked) {
+//   readSwitch.textContent = "Status: Read"
+// } else {
+//   readSwitch.textContent = "Status: Not Read"
+// };
 
 render(myLibrary);
