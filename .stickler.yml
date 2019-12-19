@@ -8,3 +8,5 @@ linters:
 files:
   ignore:
       - 'dist/*'
+fixers:
+    enable: true
