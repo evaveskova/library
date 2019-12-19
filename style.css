@@ -21,11 +21,13 @@
 }
 
 .hidden-form {
-  display:none;
+  height: 0;    
+  visibility: hidden;
+  width: 0;
 }
 
 .visible-form {
-  display:block !important;
+  display: block !important;
 }
 
 #book-form {
